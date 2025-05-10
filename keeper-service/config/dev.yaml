@@ -1,0 +1,6 @@
+storage:
+    host: "postgresql-keeper"
+    port: "5432"
+    database_name: "postgresql-keeper"
+    user: "postgres"
+    password: ${POSTGRES_PASSWORD}
