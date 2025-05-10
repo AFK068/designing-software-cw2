@@ -1,0 +1,15 @@
+_format_version: "3.0"
+services:
+  - name: analyzer-service
+    url: http://analyzer-service:8082
+    routes:
+      - name: analyzer-route
+        paths: ["/analyzer"]
+        strip_path: true
+
+  - name: keeper-service
+    url: http://keeper-service:8081
+    routes:
+      - name: keeper-route
+        paths: ["/keeper"]
+        strip_path: true
