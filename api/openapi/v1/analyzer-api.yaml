@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Keeper API
+  version: 1.0.0
+paths:
+  /analyze:
+    get:
+      summary: Analyze a file
+      parameters:
+        - name: fileID
+          in: query
+          required: true
+          description: The ID of the file to analyze
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: File analyzed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyzeFileResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'  
+        '404':
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+components:
+  schemas:
+    AnalyzeFileResponse:
+      type: object
+      properties:
+        wordCount:
+          type: integer
+        characterCount:
+          type: integer
+        isPlagiat:
+          type: boolean
+    ApiErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
