@@ -1,0 +1,8 @@
+storage:
+    host: "postgresql-analyzer"
+    port: "5432"
+    database_name: "postgresql-analyzer"
+    user: "postgres"
+    password: ${POSTGRES_PASSWORD}
+analyzer:
+    keeper_url: "http://keeper-service:8081"
